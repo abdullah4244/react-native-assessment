@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import Modal from 'react-native-modal';
 import SecondaryButton from './UI/SecondaryButton';
 type BottomSheetProps = {
@@ -10,6 +10,7 @@ type BottomSheetProps = {
 const BottomSheet = ({ message, isVisible, setIsVisible }: BottomSheetProps) => {
   return (
     <Modal
+      onBackdropPress={()=>setIsVisible(false)}
       testID="bottomModal"
       accessibilityLabel="bottom-sheet-modal"
       isVisible={isVisible}
@@ -29,6 +30,7 @@ const BottomSheet = ({ message, isVisible, setIsVisible }: BottomSheetProps) => 
 
 export default BottomSheet;
 
+const deviceHeight = Dimensions.get('window').height;
 export const styles = StyleSheet.create({
   view: {
     justifyContent: 'flex-end',
@@ -48,7 +50,7 @@ export const styles = StyleSheet.create({
   },
   content: {
     width: '100%',
-    height: '30%',
+    height: deviceHeight > 700 ? "30%" : "45%",
     backgroundColor: 'white',
     overflow: 'hidden',
     padding: 16,
