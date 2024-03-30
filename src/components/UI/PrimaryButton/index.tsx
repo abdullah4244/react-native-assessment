@@ -1,28 +1,27 @@
 import React from 'react'
 import { Pressable, StyleSheet, View,Text, GestureResponderEvent } from 'react-native'
-import { GlobalColors } from '../../constants/colors'
+import { GlobalColors } from '../../../constants/colors'
 
-interface SecondaryButtonProps {
+interface PrimaryButtonProps {
     label : string;
-    disabled?: boolean;
+    disabled?:boolean;
     onPress : (e:GestureResponderEvent) => void;
 }
-const SecondaryButton = ({label,onPress,disabled} :SecondaryButtonProps) => {
+const PrimaryButton = ({label,onPress,disabled} :PrimaryButtonProps) => {
   return (
     <View style={styles.buttonOuterContainer}>
-        <Pressable disabled={disabled} onPress={onPress} style={styles.buttonInnerContainer} android_ripple={{color : GlobalColors.rippleRed}}>
+        <Pressable testID='primaryButton' onPress={onPress} disabled={disabled} style={styles.buttonInnerContainer} android_ripple={{color : GlobalColors.rippleGreen}}>
            <Text style={styles.buttonText}>{label}</Text>
         </Pressable>
     </View>
   )
 }
 
-export default SecondaryButton;
+export default PrimaryButton
 
 const styles  = StyleSheet.create({
     buttonOuterContainer : {
-        backgroundColor : GlobalColors.errorRed,
-        borderRadius : 24,
+        backgroundColor : GlobalColors.primaryGreen,
         overflow : 'hidden'
     },
     buttonInnerContainer : {
@@ -30,7 +29,7 @@ const styles  = StyleSheet.create({
     },
     buttonText :{
      fontSize : 18,
-     color  :'#ffffff',
+     color  :GlobalColors.secondaryGreen,
      fontWeight : '700',
      textAlign : 'center'
     }

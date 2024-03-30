@@ -8,7 +8,7 @@ import PrimaryButton from '../components/UI/PrimaryButton'
 import { emailValidator } from '../utils'
 import BottomSheet from '../components/BottomSheet'
 import { ApiRepository } from '../mockAPI/ApiRepository'
-import AuthContext, { AuthContextType, useAuthContext } from '../context/AuthContext'
+import  { useAuthContext } from '../context/AuthContext'
 
 type TextInputState = {
     value: string,
@@ -82,12 +82,12 @@ const LoginScreen = () => {
                 <Image source={require('../../assets/logo.png')} style={styles.logo} />
                 <View style={styles.formContainer}>
                     <View style={[GlobalStyles.mt_2]}>
-                        <Input placeholder='Email' value={formState.email.value} onChangeText={(e) => {
+                        <Input testID='emailInput' placeholder='Email' value={formState.email.value} onChangeText={(e) => {
                             setFormState((prevState) => ({ ...prevState, email: {  value: e,errorMsg :'',isValid : true } }))
                         }} error={!formState.email.isValid} errorMsg={formState.email.errorMsg} />
                     </View>
                     <View style={[GlobalStyles.mt_2]}>
-                        <Input placeholder='Password' value={formState.password.value} onChangeText={(e) => {
+                        <Input placeholder='Password' testID='passwordInput' value={formState.password.value} onChangeText={(e) => {
                             setFormState((prevState) => ({ ...prevState, password: { ...prevState.password, value: e } }))
                         }} error={!formState.password.isValid} errorMsg={formState.password.errorMsg} secureTextEntry={isToggleEye ? true : false} PostFix={
                             <Pressable onPress={() => { setIsToggleEye((prev) => !prev) }}>
@@ -106,7 +106,7 @@ const LoginScreen = () => {
                 <View style={[GlobalStyles.mt_4,{width : "100%"}]}>
                         <PrimaryButton disabled={isFetching} label={isFetching ?  'Submitting...' : 'Log In'} onPress={onSubmit}/>
                 </View>
-                <BottomSheet isVisible={isModalVisible} message={errorMsg} setIsVisible={setIsModalVisible}/>
+                <BottomSheet  isVisible={isModalVisible} message={errorMsg} setIsVisible={setIsModalVisible}/>
             </View>
             </ScrollView>
         </SafeAreaView>

@@ -18,7 +18,7 @@ const Input = (props: TextInputProps & CustomProps) => {
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
         />
-        {errorMsg && <Text style={styles.errorMsg}>{errorMsg}</Text>}
+        {errorMsg && <Text testID='inputError' style={styles.errorMsg}>{errorMsg}</Text>}
         {PostFix && <View style={styles.postFixContainer}>
                       {PostFix}
                     </View>}

@@ -10,7 +10,7 @@ type BottomSheetProps = {
 const BottomSheet = ({message,isVisible,setIsVisible} : BottomSheetProps) => {
 
   return (
-    <Modal isVisible={isVisible}   style={styles.view} swipeDirection={['up', 'left', 'right', 'down']}>
+    <Modal testID='bottomModal' accessibilityLabel='bottom-sheet-modal' isVisible={isVisible}   style={styles.view} swipeDirection={['up', 'left', 'right', 'down']}>
         <View style={styles.containerStyle}>
         <View style={styles.content}>
                <Text style={styles.title}>Yikes!</Text>
