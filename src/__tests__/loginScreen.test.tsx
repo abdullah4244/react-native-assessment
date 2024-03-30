@@ -9,9 +9,9 @@ describe('<EmailPasswordForm />', () => {
   it('Expect to show email required', async () => {
     // Grabbing our parent component
     const { getByTestId } = render(
-     <AuthProvider>
-      <LoginScreen/>
-      </AuthProvider>,
+      <AuthProvider>
+        <LoginScreen />
+      </AuthProvider>
     );
 
     // Grabbing our input & button components
@@ -37,8 +37,8 @@ describe('<EmailPasswordForm />', () => {
     // Rendering our component & grabbing required nodes.
     const { getByTestId } = render(
       <AuthProvider>
-        <LoginScreen/>
-      </AuthProvider>,
+        <LoginScreen />
+      </AuthProvider>
     );
     const button = getByTestId('primaryButton');
     const emailInput = getByTestId('emailInput');
@@ -58,9 +58,12 @@ describe('<EmailPasswordForm />', () => {
        */
       fireEvent.press(button);
     });
-    await waitFor(()=>{
+    await waitFor(
+      () => {
         const bottomSheet = getByTestId('bottomModal');
-        expect(bottomSheet.props.visible).toEqual(true)
-    },{timeout : 3000})
+        expect(bottomSheet.props.visible).toEqual(true);
+      },
+      { timeout: 3000 }
+    );
   });
 });

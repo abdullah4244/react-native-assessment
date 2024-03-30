@@ -15,9 +15,7 @@ describe('<Button />', () => {
     const testID = 'secondaryButton';
 
     // Rendering Button component using react-native-test-renderer.
-    const { getByTestId } = await render(
-      <SecondaryButton  onPress={onPress} label="Button" />,
-    );
+    const { getByTestId } = await render(<SecondaryButton onPress={onPress} label="Button" />);
 
     // Grabbing our button component to perform actions on it.
     const button = getByTestId(testID);
