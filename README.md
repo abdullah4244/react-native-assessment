@@ -7,8 +7,6 @@ correct Login Credentials
 ```
 email :- admin@admin.com
 password :- password
-# or
-yarn start --reset-cache
 ```
 
 ## Available Scripts
